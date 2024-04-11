@@ -12,7 +12,6 @@ string word = "";
 int i = 0;
 
 int main() {
-	srand(time(0));
 
 	cout << "Enter Text: ";
 	getline(cin, uInput);
@@ -25,11 +24,14 @@ int main() {
 			word = "";
 		}
 	}
+	cout << scramble(word) << " ";
+	word = "";
 
 	return 0;
 }
 
 string scramble(string word) {
+	srand(time(0));
 	int stringLength = word.length();
 	int prepStringLength = stringLength - 2;
 
@@ -38,7 +40,8 @@ string scramble(string word) {
 		int randIndex2 = rand() % prepStringLength + 1;
 		char placeHolder = word[randIndex1];
 		while (randIndex1 == randIndex2) {
-			int randIndex2 = rand() % prepStringLength + 1;
+			randIndex2 = rand() % prepStringLength + 1;
+			cout << "bruh";
 		}
 		word[randIndex1] = word[randIndex2];
 		word[randIndex2] = placeHolder;
